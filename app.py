@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import re
 
@@ -54,11 +54,11 @@ def extrair(texto):
     return " // ".join(resultado)
 
 # =========================
-# ROTA FRONTEND
+# FRONTEND
 # =========================
 @app.route("/")
 def home():
-    return send_file("index.html")
+    return render_template("index.html")
 
 # =========================
 # API
@@ -78,8 +78,5 @@ def processar():
 # =========================
 # START
 # =========================
-if __name__ == "__main__":
-    app.run(debug=True)
-
 if __name__ == "__main__":
     app.run(debug=True)
